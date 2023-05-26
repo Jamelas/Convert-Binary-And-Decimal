@@ -1,7 +1,8 @@
-// 20019829 Jamie Douglas
+// Jamie Douglas
 //
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 string input;
@@ -12,6 +13,7 @@ void decimal(); //convert from decimal to binary
 void binary(); //convert from binary to decimal
 
 int main() {
+
   //User Input
   cout << "Enter a number: ";
   cin >> input;
@@ -24,14 +26,13 @@ int main() {
     if ((input[i] < '0') || (input[i] > '9')) {
       valid = false;
     }
-    if (valid == false) {
+    if (!valid) {
       cout << "This is not a valid number.\n";
       i = total - 1;
     }
     i++;
   }
-
-  if (valid == true) {
+  if (valid) {
     if (input[0] == '0') {
       binary();
     } else {
@@ -43,6 +44,7 @@ int main() {
 
 void binary() {
   int exponent, output;
+
   //Check for valid binary number
   for (i = 0; i < total; i++) {
     if (input[i] >= '2') {
@@ -53,13 +55,13 @@ void binary() {
       cout << "This binary number has more than 9 binary digits.\n";
       valid = false;
     }
-    if (valid == false) {
+    if (!valid) {
       i = total;
     }
   }
 
   //If valid, convert to decimal
-  if (valid == true) {
+  if (valid) {
     exponent = 1;
     output = 0;
     for (i = total - 1; i >= 0; i--) {
